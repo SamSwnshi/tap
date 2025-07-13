@@ -174,3 +174,159 @@ body {
 .traffic-high {
   color: #e53e3e;
 }
+
+.routes-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.route-item {
+  background: #f7fafc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.route-item:hover {
+  background: #edf2f7;
+}
+
+.route-item.selected {
+  background: #e6fffa;
+  border-left-color: #38a169;
+}
+
+.route-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.route-name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.route-time {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.route-details {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.analytics-panel {
+  grid-column: 1;
+}
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.analytics-card {
+  background: linear-gradient(135deg, #f093fb 0%, #9c3a47 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.analytics-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.analytics-card .value {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #38a169;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.error {
+  background: #e53e3e;
+}
+
+.saved-routes {
+  margin-top: 20px;
+}
+
+.saved-route {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+}
