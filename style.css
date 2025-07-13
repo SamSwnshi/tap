@@ -329,4 +329,7 @@ body {
   .header h1 {
     font-size: 2em;
   }
+  .analytics-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
 }

@@ -40,36 +40,42 @@
 
       <div class="main-content">
         <div class="panel">
-          <h2>Plan Your Route</h2>
-          <form action="" class="route-form">
+          <h2>🛣️ Plan Your Route</h2>
+          <form id="routeForm" class="route-form">
             <div class="input-group">
               <label for="startLoaction">From</label>
               <input
                 type="text"
                 placeholder="Enter starting Location"
+                id="startLocation"
                 required
               />
             </div>
             <div class="input-group">
               <label for="endLoaction">To</label>
-              <input type="text" placeholder="Enter Destination" required />
+              <input
+                type="text"
+                placeholder="Enter Destination"
+                id="endLocation"
+                required
+              />
             </div>
             <div class="input-group">
               <label for="departureTime">Departure Time</label>
-              <input type="datetime-local" required />
+              <input type="datetime-local" id="departureTime" required />
             </div>
             <div class="input-group">
               <label for="routeType">Route Preference</label>
-              <select name="" id="">
+              <select id="routeType">
                 <option value="fastest">Fastest Route</option>
                 <option value="shortest">Shortest Route</option>
                 <option value="scenic">Scenic Route</option>
                 <option value="avoid-traffic">Avoid Traffic</option>
               </select>
             </div>
-            <button class="btn">
-              <span>Plan Route</span>
-              <span></span>
+            <button type="submit" class="btn" id="planRouteBtn">
+              <span id="planBtnText">Plan Route</span>
+              <span id="planBtnLoader" class="loading" style="display: none;"></span>
             </button>
           </form>
           <div class="saved-routes">
@@ -79,21 +85,23 @@
         </div>
         <div class="panel">
           <h2>Interactive Map</h2>
-          <div class="map-container">
+          <div class="map-container"  id="mapContainer">
             <div class="map-placeholder">
-              <div>🗺️</div>
+              <div style="font-size: 48px; margin-bottom: 20px;">🗺️</div>
               <div>Map will load here</div>
               <div>Using Intersection Observer for lazy loading</div>
             </div>
-            <div class="traffic-indicatior traffic-low">Traffic: Low</div>
+            <div class="traffic-indicatior traffic-low" id="trafficIndicator">Traffic: Low</div>
           </div>
         </div>
       </div>
 
       <div class="panel">
         <h2>Route Option</h2>
-        <div class="routes-list">
-          <div class="route-item" style="text-align: center; color: #718096;">Plan a route to see option here</div>
+        <div class="routes-list" id="routesList">
+          <div class="route-item" style="text-align: center; color: #718096">
+            Plan a route to see option here
+          </div>
         </div>
       </div>
 
@@ -102,22 +110,22 @@
         <div class="analytics-grid">
           <div class="analytics-card">
             <h3>Average Commuete Time</h3>
-            <div class="value">--</div>
+            <div class="value" id="avgTime">--</div>
             <div>Minutes</div>
           </div>
           <div class="analytics-card">
             <h3>Time Saved This Week</h3>
-            <div class="value">--</div>
+            <div class="value" id="timeSaved">--</div>
             <div>Minutes</div>
           </div>
           <div class="analytics-card">
             <h3>Routes Optimized</h3>
-            <div class="value">--</div>
+            <div class="value" id="routesOptimized">--</div>
             <div>this month</div>
           </div>
           <div class="analytics-card">
             <h3>Carbon Footprint</h3>
-            <div class="value">--</div>
+            <div class="value" id="carbonSaved">--</div>
             <div>kg C02 Saved</div>
           </div>
         </div>
