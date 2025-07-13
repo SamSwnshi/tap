@@ -66,7 +66,7 @@
           updateStatus('locationStatus', 'Located ✓');
           showNotification('Location access granted', 'success');
           
-          // Update map if it's already loaded
+         
           if (map) {
             map.setView([currentLocation.lat, currentLocation.lng], 13);
             addCurrentLocationMarker();
@@ -90,7 +90,7 @@
           accuracy: position.coords.accuracy,
         };
         
-        // Update current location marker if map is loaded
+    
         if (map) {
           addCurrentLocationMarker();
         }
@@ -144,10 +144,10 @@
     const mapContainer = document.getElementById('mapContainer');
     const placeholder = mapContainer.querySelector('.map-placeholder');
     
-    // Remove placeholder and create map div
+   
     placeholder.style.display = 'none';
     
-    // Create map div if it doesn't exist
+    
     let mapDiv = mapContainer.querySelector('#map');
     if (!mapDiv) {
       mapDiv = document.createElement('div');
@@ -157,21 +157,21 @@
       mapContainer.appendChild(mapDiv);
     }
 
-    // Initialize Leaflet map
+   
     map = L.map('map').setView([20.5937, 78.9629], 5); // Default to India center
 
-    // Add OpenStreetMap tiles
+   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // If we have current location, center the map there
+    
     if (currentLocation) {
       map.setView([currentLocation.lat, currentLocation.lng], 13);
       addCurrentLocationMarker();
     }
 
-    // Add map controls
+   
     map.on('click', onMapClick);
     
     showNotification('Interactive map loaded successfully!', 'success');
@@ -179,7 +179,7 @@
 
   function addCurrentLocationMarker() {
     if (currentLocation && map) {
-      // Remove existing current location marker
+   
       mapMarkers.forEach(marker => {
         if (marker.isCurrentLocation) {
           map.removeLayer(marker);
@@ -200,7 +200,7 @@
     const lat = e.latlng.lat;
     const lng = e.latlng.lng;
     
-    // Add a marker at the clicked location
+    
     const marker = L.marker([lat, lng])
       .addTo(map)
       .bindPopup(`Location: ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
@@ -211,15 +211,15 @@
   function plotRoute(start, end) {
     if (!map) return;
 
-    // Clear existing routes
+    
     clearRoutes();
 
-    // Create mock route coordinates (in a real app, you'd use a routing service)
+   
     const startCoords = getCoordinatesFromAddress(start);
     const endCoords = getCoordinatesFromAddress(end);
     
     if (startCoords && endCoords) {
-      // Add markers for start and end points
+      
       const startMarker = L.marker(startCoords)
         .addTo(map)
         .bindPopup(`Start: ${start}`);
@@ -230,7 +230,7 @@
       
       mapMarkers.push(startMarker, endMarker);
 
-      // Create a simple route line (in real app, use actual routing)
+     
       const routeLine = L.polyline([startCoords, endCoords], {
         color: '#667eea',
         weight: 4,
@@ -239,13 +239,13 @@
       
       routePolylines.push(routeLine);
 
-      // Fit map to show the entire route
+  
       map.fitBounds(routeLine.getBounds(), { padding: [20, 20] });
     }
   }
 
   function getCoordinatesFromAddress(address) {
-    // Mock geocoding - in a real app, use a geocoding service
+   
     const mockCoordinates = {
       // Major Indian Cities
       'mumbai': [19.0760, 72.8777],
@@ -632,30 +632,30 @@
 
     const addressLower = address.toLowerCase().trim();
     
-    // Try exact match first
+ 
     if (mockCoordinates[addressLower]) {
       return mockCoordinates[addressLower];
     }
     
-    // Try partial matches
+ 
     for (const [key, coords] of Object.entries(mockCoordinates)) {
       if (addressLower.includes(key) || key.includes(addressLower)) {
         return coords;
       }
     }
     
-    // If no match found, return a default location (India center)
+    
     return [20.5937, 78.9629];
   }
 
   function clearRoutes() {
-    // Remove all route polylines
+   
     routePolylines.forEach(polyline => {
       map.removeLayer(polyline);
     });
     routePolylines = [];
     
-    // Remove all markers except current location
+    
     mapMarkers.forEach(marker => {
       if (!marker.isCurrentLocation) {
         map.removeLayer(marker);
@@ -718,7 +718,7 @@
       routes = generateMockRoutes(start, end, type);
       displayRoutes(routes);
       
-      // Plot the route on the map
+   
       if (map) {
         plotRoute(start, end);
       }
