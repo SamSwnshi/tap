@@ -1,83 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Commute Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Smart Commute Planner</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Smart Commute Planner</h1>
+        <p>Optimize your daily commute with real-time traffic interlligence.</p>
+      </header>
 
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>Smart Commute Planner</h1>
-      <p>Optimize your daily commute with real-time traffic interlligence.</p>
-    </header>
-    <div class="status-bar">
-      <div class="status-grid">
-        <div class="status-item">
-          <i>📍</i>
-          <div>Location Status</div>
-          <div id="locationStatus">Detecting...</div>
-        </div>
-        <div class="status-item">
-          <i>🌐</i>
-          <div>Network</div>
-          <div id="locationStatus">Checking...</div>
-        </div>
-        <div class="status-item">
-          <i>⚡</i>
-          <div>Background Tasks</div>
-          <div id="locationStatus">Ready</div>
-        </div>
-        <div class="status-item">
-          <i>👁️</i>
-          <div>Map Observer</div>
-          <div id="locationStatus">Active</div>
+      <div class="status-bar">
+        <div class="status-grid">
+          <div class="status-item">
+            <i>📍</i>
+            <div>Location Status</div>
+            <div id="locationStatus">Detecting...</div>
+          </div>
+          <div class="status-item">
+            <i>🌐</i>
+            <div>Network</div>
+            <div id="locationStatus">Checking...</div>
+          </div>
+          <div class="status-item">
+            <i>⚡</i>
+            <div>Background Tasks</div>
+            <div id="locationStatus">Ready</div>
+          </div>
+          <div class="status-item">
+            <i>👁️</i>
+            <div>Map Observer</div>
+            <div id="locationStatus">Active</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="main-content">
+      <div class="main-content">
+        <div class="panel">
+          <h2>Plan Your Route</h2>
+          <form action="" class="route-form">
+            <div class="input-group">
+              <label for="startLoaction">From</label>
+              <input
+                type="text"
+                placeholder="Enter starting Location"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="endLoaction">To</label>
+              <input type="text" placeholder="Enter Destination" required />
+            </div>
+            <div class="input-group">
+              <label for="departureTime">Departure Time</label>
+              <input type="datetime-local" required />
+            </div>
+            <div class="input-group">
+              <label for="routeType">Route Preference</label>
+              <select name="" id="">
+                <option value="fastest">Fastest Route</option>
+                <option value="shortest">Shortest Route</option>
+                <option value="scenic">Scenic Route</option>
+                <option value="avoid-traffic">Avoid Traffic</option>
+              </select>
+            </div>
+            <button class="btn">
+              <span>Plan Route</span>
+              <span></span>
+            </button>
+          </form>
+          <div class="saved-routes">
+            <h3>Saved Routes</h3>
+            <div id="savedRoutesList"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Interactive Map</h2>
+          <div class="map-container">
+            <div class="map-placeholder">
+              <div>🗺️</div>
+              <div>Map will load here</div>
+              <div>Using Intersection Observer for lazy loading</div>
+            </div>
+            <div class="traffic-indicatior">Traffic: Low</div>
+          </div>
+        </div>
+      </div>
+
       <div class="panel">
-        <h2>Plan Your Route</h2>
-        <form action="" class="route-form">
-          <div class="input-group">
-            <label for="startLoaction">From</label>
-            <input type="text" placeholder="Enter starting Location" required />
-          </div>
-          <div class="input-group">
-            <label for="endLoaction">To</label>
-            <input type="text" placeholder="Enter Destination" required />
-          </div>
-          <div class="input-group">
-            <label for="departureTime">Departure Time</label>
-            <input type="datetime-local" required />
-          </div>
-          <div class="input-group">
-            <label for="routeType">Route Preference</label>
-            <select name="" id="">
-              <option value="fastest">Fastest Route</option>
-              <option value="shortest">Shortest Route</option>
-              <option value="scenic">Scenic Route</option>
-              <option value="avoid-traffic">Avoid Traffic</option>
-            </select>
-          </div>
-          <button class="btn">
-            <span>Plan Route</span>
-            <span></span>
-          </button>
-        </form>
-        <div class="saved-routes">
-          <h3>Saved Routes</h3>
-          <div id="savedRoutesList"></div>
+        <h2>Route Option</h2>
+        <div class="routes-list">
+          <div class="route-item">Plan a route to see option here</div>
         </div>
       </div>
-      
+
+      <div class="panel analytics-panel">
+        <h2>Commute Analytics</h2>
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <h3>Average Commuete Time</h3>
+            <div class="value">--</div>
+            <div>Minutes</div>
+          </div>
+          <div class="analytics-card">
+            <h3>Time Saved This Week</h3>
+            <div class="value">--</div>
+            <div>Minutes</div>
+          </div>
+          <div class="analytics-card">
+            <h3>Routes Optimized</h3>
+            <div class="value">--</div>
+            <div>this month</div>
+          </div>
+          <div class="analytics-card">
+            <h3>Carbon Footprint</h3>
+            <div class="value">--</div>
+            <div>kg C02 Saved</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <div class="notification" id="notification"></div>
 
+    <script src="script.js"></script>
+  </body>
 </html>
